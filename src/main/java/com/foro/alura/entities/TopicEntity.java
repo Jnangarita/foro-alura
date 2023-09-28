@@ -31,6 +31,8 @@ public class TopicEntity {
     @Column(name = "curso")
 	private String course;
 
+	public TopicEntity() {}
+
 	public TopicEntity(SaveTopicDTO topic) {
 		if(!topic.getTitle().isEmpty()) {
 			this.title = topic.getTitle();
@@ -50,10 +52,6 @@ public class TopicEntity {
 
 	public Integer getId() {
 		return this.id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
 	}
 
 	public String getTitle() {
