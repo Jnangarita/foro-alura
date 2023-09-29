@@ -101,4 +101,19 @@ public class TopicEntity {
 	public void setCourse(String course) {
 		this.course = course;
 	}
+
+	public void updateTopicDdata(SaveTopicDTO payload) {
+		if(!payload.getTitle().isEmpty()) {
+			this.title = payload.getTitle();
+		}
+		if(!payload.getMessage().isEmpty()) {
+			this.message = payload.getMessage();
+		}
+		if(!payload.getAuthor().isEmpty()) {
+			this.author = payload.getAuthor();
+		}
+		if(!payload.getCourse().isEmpty()) {
+			this.course = payload.getCourse();
+		}
+	}
 }
