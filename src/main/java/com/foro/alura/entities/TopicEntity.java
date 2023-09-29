@@ -116,4 +116,8 @@ public class TopicEntity {
 			this.course = payload.getCourse();
 		}
 	}
+
+	public void delete() {
+		this.status = false;
+	}
 }
