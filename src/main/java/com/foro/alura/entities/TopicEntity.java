@@ -10,109 +10,62 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import lombok.Getter;
+import lombok.Setter;
 
 @Table(name = "topicos")
 @Entity(name = "Topicos")
+@Getter
+@Setter
 public class TopicEntity {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id")
 	private Integer id;
-    @Column(name = "titulo")
+	@Column(name = "titulo")
 	private String title;
-    @Column(name = "mensaje")
+	@Column(name = "mensaje")
 	private String message;
-    @Column(name = "fecha_creacion")
+	@Column(name = "fecha_creacion")
 	private Timestamp creationDate;
-    @Column(name = "estatus")
+	@Column(name = "estatus")
 	private boolean status;
-    @Column(name = "autor")
+	@Column(name = "autor")
 	private String author;
-    @Column(name = "curso")
+	@Column(name = "curso")
 	private String course;
 
-	public TopicEntity() {}
+	public TopicEntity() {
+	}
 
 	public TopicEntity(SaveTopicDTO topic) {
-		if(!topic.getTitle().isEmpty()) {
+		if (!topic.getTitle().isEmpty()) {
 			this.title = topic.getTitle();
 		}
-		if(!topic.getMessage().isEmpty()) {
+		if (!topic.getMessage().isEmpty()) {
 			this.message = topic.getMessage();
 		}
 		this.creationDate = new Timestamp(System.currentTimeMillis());
 		this.status = true;
-		if(!topic.getAuthor().isEmpty()) {
+		if (!topic.getAuthor().isEmpty()) {
 			this.author = topic.getAuthor();
 		}
-		if(!topic.getCourse().isEmpty()) {
+		if (!topic.getCourse().isEmpty()) {
 			this.course = topic.getCourse();
 		}
 	}
 
-	public Integer getId() {
-		return this.id;
-	}
-
-	public String getTitle() {
-		return this.title;
-	}
-
-	public void setTitle(String title) {
-		this.title = title;
-	}
-
-	public String getMessage() {
-		return this.message;
-	}
-
-	public void setMessage(String message) {
-		this.message = message;
-	}
-
-	public Timestamp getCreationDate() {
-		return this.creationDate;
-	}
-
-	public void setCreationDate(Timestamp creationDate) {
-		this.creationDate = creationDate;
-	}
-
-	public boolean isStatus() {
-		return this.status;
-	}
-
-	public void setStatus(boolean status) {
-		this.status = status;
-	}
-
-	public String getAuthor() {
-		return this.author;
-	}
-
-	public void setAuthor(String author) {
-		this.author = author;
-	}
-
-	public String getCourse() {
-		return this.course;
-	}
-
-	public void setCourse(String course) {
-		this.course = course;
-	}
-
 	public void updateTopicDdata(SaveTopicDTO payload) {
-		if(!payload.getTitle().isEmpty()) {
+		if (!payload.getTitle().isEmpty()) {
 			this.title = payload.getTitle();
 		}
-		if(!payload.getMessage().isEmpty()) {
+		if (!payload.getMessage().isEmpty()) {
 			this.message = payload.getMessage();
 		}
-		if(!payload.getAuthor().isEmpty()) {
+		if (!payload.getAuthor().isEmpty()) {
 			this.author = payload.getAuthor();
 		}
-		if(!payload.getCourse().isEmpty()) {
+		if (!payload.getCourse().isEmpty()) {
 			this.course = payload.getCourse();
 		}
 	}
