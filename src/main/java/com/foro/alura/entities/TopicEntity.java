@@ -13,25 +13,31 @@ import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
 
-@Table(name = "topicos")
-@Entity(name = "Topicos")
 @Getter
 @Setter
+@Table(name = "topicos")
+@Entity(name = "TopicEntity")
 public class TopicEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
 	private Integer id;
+
 	@Column(name = "titulo")
 	private String title;
+
 	@Column(name = "mensaje")
 	private String message;
+
 	@Column(name = "fecha_creacion")
 	private Timestamp creationDate;
+
 	@Column(name = "estatus")
 	private boolean status;
+
 	@Column(name = "autor")
 	private String author;
+
 	@Column(name = "curso")
 	private String course;
 
