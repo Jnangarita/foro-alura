@@ -20,6 +20,7 @@ import com.foro.alura.entities.TopicEntity;
 import com.foro.alura.repositories.TopicRepository;
 
 import jakarta.transaction.Transactional;
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("api/topicos")
@@ -28,7 +29,7 @@ public class TopicosController {
 	TopicRepository topicRepository;
 
 	@PostMapping
-	public ResponseEntity<ResponseTopicDTO> registerNewTopic(@RequestBody SaveTopicDTO payload,
+	public ResponseEntity<ResponseTopicDTO> registerNewTopic(@RequestBody @Valid SaveTopicDTO payload,
 			UriComponentsBuilder uriComponentsBuilder) {
 		TopicEntity topic = topicRepository.save(new TopicEntity(payload));
 		ResponseTopicDTO responseTopic = new ResponseTopicDTO(topic.getId(), topic.getTitle(), topic.getMessage(),
