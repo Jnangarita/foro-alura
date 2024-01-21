@@ -10,11 +10,17 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@EqualsAndHashCode(of = "id")
 @Table(name = "topicos")
 @Entity(name = "TopicEntity")
 public class TopicEntity {
@@ -40,9 +46,6 @@ public class TopicEntity {
 
 	@Column(name = "curso")
 	private String course;
-
-	public TopicEntity() {
-	}
 
 	public TopicEntity(SaveTopicDTO topic) {
 		if (!topic.getTitle().isEmpty()) {
