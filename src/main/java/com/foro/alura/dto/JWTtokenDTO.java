@@ -6,9 +6,9 @@ import lombok.Setter;
 @Getter
 @Setter
 public class JWTtokenDTO {
-	String token;
+	String jwtToken;
 
 	public JWTtokenDTO(String jWTtoken) {
-		this.token = jWTtoken;
+		this.jwtToken = jWTtoken;
 	}
 }

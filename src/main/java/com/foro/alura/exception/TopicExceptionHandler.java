@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 @RestControllerAdvice
 public class TopicExceptionHandler {
 	@ExceptionHandler(EntityNotFoundException.class)
-	public ResponseEntity<?> tryError404() {
+	public ResponseEntity<Void> tryError404(EntityNotFoundException e) {
 		return ResponseEntity.notFound().build();
 	}
 

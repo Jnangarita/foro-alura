@@ -63,7 +63,7 @@ public class TopicosController {
 
 	@DeleteMapping("/{id}")
 	@Transactional
-	public ResponseEntity<ResponseTopicDTO> deteteTopic(@PathVariable Integer id) {
+	public ResponseEntity<Void> deteteTopic(@PathVariable Integer id) {
 		TopicEntity topicEntity = topicRepository.getReferenceById(id);
 		topicEntity.delete();
 		return ResponseEntity.noContent().build();
